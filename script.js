@@ -1,6 +1,6 @@
 // Initialize the map and set its view to a chosen geographical point and zoom
 // [Latitude, Longitude], Zoom Level
-var map = L.map('map').setView([51.505, -0.09], 13);
+var map = L.map('map').setView([54.597, -5.930], 15);
 
 // Add a tile layer (the map images). We use OpenStreetMap.
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -9,10 +9,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Add a marker at a specific location
-var marker = L.marker([51.5, -0.09]).addTo(map);
+var marker = L.marker([54.5965, -5.9301]).addTo(map);
 
 // Add a popup to that marker
-marker.bindPopup("<b>Hello World!</b><br>This is a custom popup.").openPopup();
+marker.bindPopup("<b>Belfast City Hall</b><br>The heart of the city.").openPopup();
 
 // Create a blank popup
 var popup = L.popup();
