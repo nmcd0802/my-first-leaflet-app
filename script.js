@@ -57,16 +57,22 @@ map.on('click', onMapClick);
 // Fetch the GeoJSON file
 fetch('locations.json')
     .then(function(response) {
+        // If the file isn't found, throw an error
+        if (!response.ok) {
+            throw new Error("HTTP error, status = " + response.status);
+        }
         return response.json();
     })
     .then(function(data) {
-        // Add the GeoJSON data to the map
         L.geoJSON(data, {
             onEachFeature: function (feature, layer) {
-                // Check if this feature has a popupContent property
                 if (feature.properties && feature.properties.popupContent) {
                     layer.bindPopup(feature.properties.popupContent);
                 }
             }
         }).addTo(map);
+    })
+    .catch(function(error) {
+        // This runs if the file is missing or the code crashes
+        console.error("The fetch failed:", error);
     });
