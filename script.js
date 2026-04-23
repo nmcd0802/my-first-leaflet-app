@@ -53,3 +53,20 @@ function onMapClick(e) {
 
 // Tell the map to listen for clicks
 map.on('click', onMapClick);
+
+// Fetch the GeoJSON file
+fetch('locations.json')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // Add the GeoJSON data to the map
+        L.geoJSON(data, {
+            onEachFeature: function (feature, layer) {
+                // Check if this feature has a popupContent property
+                if (feature.properties && feature.properties.popupContent) {
+                    layer.bindPopup(feature.properties.popupContent);
+                }
+            }
+        }).addTo(map);
+    });

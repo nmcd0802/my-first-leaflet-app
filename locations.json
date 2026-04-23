@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "popupContent": "Belfast City Hall" },
+      "geometry": { "type": "Point", "coordinates": [-5.9301, 54.5965] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "popupContent": "QUB Lanyon Building" },
+      "geometry": { "type": "Point", "coordinates": [-5.9348, 54.5847] }
+    }
+  ]
+}
